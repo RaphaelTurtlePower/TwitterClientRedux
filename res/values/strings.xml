@@ -8,6 +8,11 @@
     <string name="title_activity_timeline">Home</string>
     <string name="foo_label">\\@foo</string>
     <string name="tweet_body">\@string/This is the tweet body</string>
-	<string name="submit">Submit</string>
-	<string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_followers">Followers</string>
+    <string name="title_activity_friends">FriendsActivity</string>
+
 </resources>
