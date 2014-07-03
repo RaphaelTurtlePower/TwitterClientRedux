@@ -2,6 +2,7 @@ User Stories:
 
 ![Video Walkthrough](twitter_client.gif)
 
+Time Spent: 10-15 hours.
 The following user stories must be completed:
 
 Week 3 User Stories
