@@ -16,8 +16,6 @@ The following user stories must be completed:
 * [x] Optional: User can see a counter with total number of characters left for tweet
 * [x] Optional: Links in tweets are clickable and will launch the web browser (see autolink)
 * [x] Advanced: User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
-* [x] Advanced: User can open the twitter app offline and see last loaded tweets (DISABLED)
-	Tweets are persisted into sqlite and can be displayed from the local DB
 	
 Includes all required user stories from Week 3 Twitter Client
 * [x] Required:User can switch between Timeline and Mention views using tabs.
@@ -44,7 +42,8 @@ Advanced: User can take favorite (and unfavorite) or reweet actions on a tweet
 Advanced: Improve the user interface and theme the app to feel twitter branded
 Advanced: User can search for tweets matching a particular query and see results
 Bonus: User can view their direct messages (or send new ones)
-
+Advanced: User can open the twitter app offline and see last loaded tweets (DISABLED)
+	Tweets are persisted into sqlite and can be displayed from the local DB
 
 
 User Stories:
