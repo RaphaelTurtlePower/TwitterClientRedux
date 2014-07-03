@@ -7,4 +7,5 @@ public interface ListViewItemModel {
 	public String getRelativeTimeAgo();
 	public String getUserName();
 	public Long getUserId();
+	public Long getUid();
 }

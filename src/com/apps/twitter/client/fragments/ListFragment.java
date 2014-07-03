@@ -45,6 +45,7 @@ public class ListFragment extends Fragment implements RefreshListener, ScrollLis
 		itemsAdapter = new ListViewItemArrayAdapter(getActivity(), itemList);
 		lastId=null;
 		firstId=null;
+		System.out.println("ListFragment's onCreate triggered. LastId=null, FirstId=null");
 	}
 	
 	@Override
@@ -58,12 +59,14 @@ public class ListFragment extends Fragment implements RefreshListener, ScrollLis
 		lView.setOnRefreshListener(new OnRefreshListener(){
 			@Override
 			public void onRefresh() {
+				System.out.println("Pull to Refresh's OnRefresh is firing.");
 				refreshListener.onRefresh(firstId);
 			}
 		});
 		lView.setOnScrollListener(new EndlessScrollListener(){
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
+				System.out.println("ScrollListener's On Load More is firing.");
 				scrollListener.loadMore(lastId);
 			}
 			
@@ -72,20 +75,30 @@ public class ListFragment extends Fragment implements RefreshListener, ScrollLis
 	}
 	
 	public void addAll(ArrayList lvims){
+		System.out.println("Add all is called. This should be onScroll. LastId must be updated.");
+		System.out.println("Items Adapter:" + itemsAdapter.getCount());
+		System.out.println("*******New values to add:" + lvims.size());
 		itemsAdapter.addAll(lvims);
+		System.out.println("*******New Array Size:" + itemsAdapter.getCount());
 		setFirstAndLastIds();
 	}
 	
 	public void setFirstAndLastIds(){
+		System.out.println("First and Last Ids are being set.");
+		System.out.println("Initial Values -> First: " + firstId + " and Last:" + lastId);
 		int totalCount = itemsAdapter.getCount();
 		if(totalCount > 0){
-			lastId = itemsAdapter.getItem(totalCount-1).getUserId() - 1;
-			firstId = itemsAdapter.getItem(0).getUserId();
+			System.out.println("Last Item:" + itemsAdapter.getItem(totalCount-1).getDescription());
+			System.out.println("First Item: " + itemsAdapter.getItem(0).getDescription());
+			lastId = itemsAdapter.getItem(totalCount-1).getUid();
+			firstId = itemsAdapter.getItem(0).getUid();
 		}
+		System.out.println("New Values -> First: " + firstId + " and Last:" + lastId);
 	}
 	
 	//insert a tweet to array adapter
 	public void insert(ListViewItemModel lvim, int position){
+		System.out.println("Insert is called. This should be onRefresh. FirstId must be updated.");
 		itemsAdapter.insert(lvim, position);
 		setFirstAndLastIds();
 	}
@@ -101,19 +114,18 @@ public class ListFragment extends Fragment implements RefreshListener, ScrollLis
 
 	//refresh list view
 	public void onRefreshComplete(){
+		System.out.println("On Refresh Complete for ListView is called");
 		lView.onRefreshComplete();
 	}
 
 	@Override
 	public void loadMore(Long max_id) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Load more is called.");
 	}
 
 	@Override
 	public void onRefresh(Long since_id) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("OnRefresh is called.");
 	}
 	 
 	  	

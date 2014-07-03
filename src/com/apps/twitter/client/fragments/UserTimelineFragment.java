@@ -41,7 +41,7 @@ public class UserTimelineFragment extends ListFragment implements RefreshListene
 		if(client == null){
 			client = TwitterApplication.getRestClient();
 		}
-			client.getUserTimeline(start_id,max_id, user_id, new JsonHttpResponseHandler(){
+			client.getUserTimeline(start_id,max_id, this.user_id, new JsonHttpResponseHandler(){
 				@Override
 				public void onFailure(Throwable e, String s){
 					Log.d("debug", e.toString());

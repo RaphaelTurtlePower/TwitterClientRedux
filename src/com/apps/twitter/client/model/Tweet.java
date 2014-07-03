@@ -94,7 +94,7 @@ public class Tweet extends Model implements ListViewItemModel {
 		return body;
 	}
 	
-	public long getUid() {
+	public Long getUid() {
 		return uid;
 	}
 	

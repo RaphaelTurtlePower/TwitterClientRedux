@@ -28,13 +28,12 @@ public class HomeTimelineFragment extends ListFragment implements RefreshListene
 		if(tweetList != null && tweetList.size() > 0){
 			addAll(tweetList);
 		}
-		firstId=1L;
-		lastId=1L;
-		populateTimeline(getFirstId(), null, true);
+		populateTimeline(1L, null, true);
 
 	}
 	
 	public void populateTimeline(Long start_id, Long max_id, final Boolean refresh){
+		System.out.println("Calling populateTimeline with startId:" + start_id + " and max_id:" + max_id);
 		if(client == null){
 			client = TwitterApplication.getRestClient();
 		}
@@ -62,6 +61,7 @@ public class HomeTimelineFragment extends ListFragment implements RefreshListene
 		                onRefreshComplete();
 					}else{
 						//append at the bottom
+						System.out.println(json.toString());
 						addAll(Tweet.fromJSONArray(json));
 					}
 				}
@@ -70,13 +70,13 @@ public class HomeTimelineFragment extends ListFragment implements RefreshListene
 
 	@Override
 	public void loadMore(Long max_id) {
+		System.out.println("HomeTimelineFragment: LoadMore called Max_id:" + max_id);
 		populateTimeline(null, max_id, false);
-	
-		
 	}
 
 	@Override
 	public void onRefresh(Long since_id) {
+		System.out.println("HomeTimelineFragment: onRefresh called. Since_id: " + since_id);
 		populateTimeline(since_id, null, true);
 	}
   

@@ -21,9 +21,7 @@ public class MentionsTimelineFragment extends ListFragment implements RefreshLis
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		client = TwitterApplication.getRestClient();
-		firstId=1L;
-		lastId=1L;
-		populateTimeline(getFirstId(), null, true);
+		populateTimeline(1L, null, true);
 	}
 	
 	public void populateTimeline(Long start_id, Long max_id, final Boolean refresh){
@@ -56,12 +54,15 @@ public class MentionsTimelineFragment extends ListFragment implements RefreshLis
 
 	@Override
 	public void loadMore(Long max_id) {
+		System.out.println("MentionsTimelineFragment: LoadMore called");
+		
 		populateTimeline(null, max_id, false);
 		
 	}
 
 	@Override
 	public void onRefresh(Long since_id) {
+		System.out.println("MentionsTimelineFragment: onRefresh called");
 		populateTimeline(since_id, null, true);
 	}
   

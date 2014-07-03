@@ -69,8 +69,12 @@ public class FollowersFragment extends ListFragment implements RefreshListener,
 				public void onSuccess(JSONObject jsonObject){
 					System.out.println("Success JSON OBJECT!!");
 					JSONArray json;
+					Long firstT;
+					Long lastT;
 					try {
 						json = jsonObject.getJSONArray("users");
+						firstT = jsonObject.getLong("previous_cursor");
+						lastT = jsonObject.getLong("next_cursor");
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -81,24 +85,28 @@ public class FollowersFragment extends ListFragment implements RefreshListener,
 		            	for(int i=users.size()-1; i>=0; i--){
 		            		insert(users.get(i), 0);
 		            	}
+		            	
 		                onRefreshComplete();
 					}else{
 						addAll(User.fromJSONArray(json));
 					}
+					firstId=firstT;
+					lastId=lastT;
 				}
 				
 			});
-    		System.out.println("End of getFriendsList Call.");
-	}
+   }
 
 
 	@Override
 	public void loadMore(Long max_id) {
+		System.out.println("FollowersFragment: LoadMore called");
 		populateTimeline(max_id, false);
 	}
 	
 	@Override
 	public void onRefresh(Long since_id) {
+		System.out.println("FollowersFragment: LoadMore called");
 		populateTimeline(since_id, true);
 	}
 }

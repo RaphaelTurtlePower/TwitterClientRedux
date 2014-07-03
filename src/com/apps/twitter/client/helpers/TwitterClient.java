@@ -34,13 +34,16 @@ public class TwitterClient extends OAuthBaseClient {
     }
     
     public void getTwitterTimeline(Long since_id, Long max_id, AsyncHttpResponseHandler handler){
+    	System.out.println("Get HomeTimeline called.");
     	String apiUrl = getApiUrl("statuses/home_timeline.json");
     	RequestParams params = new RequestParams();
     	if(since_id != null){
+    		System.out.println("Since_Id:" + since_id.toString());
     		params.put("since_id", since_id.toString());
     	}
     	if(max_id != null){
-    		params.put("max_id", max_id.toString() );
+    		System.out.println("Max_id:" + max_id.toString());
+        	params.put("max_id", max_id.toString() );
     	}
     	client.get(apiUrl,params, handler);
     	
@@ -58,13 +61,16 @@ public class TwitterClient extends OAuthBaseClient {
     }
     
     public void getUserTimeline(Long since_id, Long max_id, Long user_id, AsyncHttpResponseHandler handler){
+    	System.out.println("Get USERTimeline called.");
     	String apiUrl = getApiUrl("statuses/user_timeline.json");
     	RequestParams params = new RequestParams();
     	if(since_id != null){
-    		params.put("since_id", since_id.toString());
+    		System.out.println("Since_Id:" + since_id.toString());
+        	params.put("since_id", since_id.toString());
     	}
     	if(max_id != null){
-    		params.put("max_id", max_id.toString() );
+    		System.out.println("Max_id:" + max_id.toString());
+        	params.put("max_id", max_id.toString() );
     	}
     	if(user_id != null){
     		params.put("user_id", user_id.toString());
@@ -74,13 +80,16 @@ public class TwitterClient extends OAuthBaseClient {
     }
     
     public void getMentionsTimeline(Long since_id, Long max_id, AsyncHttpResponseHandler handler){
+    	System.out.println("Get MENTIONSTimeline called.");
     	String apiUrl = getApiUrl("statuses/mentions_timeline.json");
     	RequestParams params = new RequestParams();
     	if(since_id != null){
-    		params.put("since_id", since_id.toString());
+    		System.out.println("Since_Id:" + since_id.toString());
+        	params.put("since_id", since_id.toString());
     	}
     	if(max_id != null){
-    		params.put("max_id", max_id.toString() );
+    		System.out.println("Max_id:" + max_id.toString());
+        	params.put("max_id", max_id.toString() );
     	}
     	client.get(apiUrl,params, handler);
     	
@@ -96,12 +105,15 @@ public class TwitterClient extends OAuthBaseClient {
     	RequestParams params = new RequestParams();
     	params.put("user_id", user_id.toString());
     	if(cursor != null){
+    		System.out.println("Cursor:" + cursor.toString());
     		params.put("cursor", cursor.toString());
     	}
     	client.get(apiUrl,params, handler);
     }
     
     public void getFollowersList(Long user_id, Long cursor, AsyncHttpResponseHandler handler){
+    	System.out.println("Get FOLLOWERSLIST called.");
+    	
     	if(user_id == null){
     		System.out.println("User id is null for followers list");
     		return;
@@ -110,7 +122,8 @@ public class TwitterClient extends OAuthBaseClient {
     	RequestParams params = new RequestParams();
     	params.put("user_id", user_id.toString());
     	if(cursor != null){
-    		params.put("cursor", cursor.toString());
+    		System.out.println("Cursor:" + cursor.toString());
+        	params.put("cursor", cursor.toString());
     	}
     	client.get(apiUrl,params, handler);
     } 

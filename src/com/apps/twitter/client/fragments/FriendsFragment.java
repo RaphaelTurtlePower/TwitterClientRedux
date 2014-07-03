@@ -68,10 +68,12 @@ public class FriendsFragment extends ListFragment implements RefreshListener,
 				@Override
 				public void onSuccess(JSONObject jsonObject){
 					JSONArray json;
+					Long firstT;
+					Long lastT;
 					try {
 						json = jsonObject.getJSONArray("users");
-						firstId = jsonObject.getLong("previous_cursor");
-						lastId = jsonObject.getLong("next_cursor");
+						firstT = jsonObject.getLong("previous_cursor");
+						lastT = jsonObject.getLong("next_cursor");
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -88,19 +90,21 @@ public class FriendsFragment extends ListFragment implements RefreshListener,
 						//append at the bottom
 						addAll(User.fromJSONArray(json));
 					}
+					firstId=firstT;
+					lastId=lastT;
 				}
 			});
 	}
 
 	@Override
 	public void loadMore(Long max_id) {
-		System.out.println("LoadMore triggered");
+		System.out.println("FriendsFragment:LoadMore triggered");
 		populateTimeline(max_id, false);
 	}
 	
 	@Override
 	public void onRefresh(Long since_id) {
-		System.out.println("On Refresh Triggered.");
+		System.out.println("FriendsFragment:On Refresh Triggered.");
 		populateTimeline(since_id, true);
 	}
 }
