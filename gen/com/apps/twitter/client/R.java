@@ -22,40 +22,62 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int new_tweet=0x7f020002;
-        public static final int ptr_pulltorefresh_arrow=0x7f020003;
-        public static final int silver=0x7f020004;
-        public static final int twitter=0x7f020005;
+        public static final int grey_button=0x7f020001;
+        public static final int ic_action_home=0x7f020002;
+        public static final int ic_action_mentions=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int ic_profile_boss=0x7f020005;
+        public static final int new_tweet=0x7f020006;
+        public static final int ptr_pulltorefresh_arrow=0x7f020007;
+        public static final int silver=0x7f020008;
+        public static final int street_lights=0x7f020009;
+        public static final int twitter=0x7f02000a;
+        public static final int twitter_bird=0x7f02000b;
+        public static final int twitter_bird_2=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f080012;
-        public static final int ivProfileImage=0x7f08000d;
-        public static final int lvTweets=0x7f080000;
-        public static final int new_tweet=0x7f080013;
-        public static final int new_tweet_header=0x7f080001;
-        public static final int new_tweet_image=0x7f080002;
-        public static final int new_tweet_name=0x7f080003;
-        public static final int new_tweet_screen_name=0x7f080004;
-        public static final int ptr_id_header=0x7f080007;
-        public static final int ptr_id_image=0x7f080008;
-        public static final int ptr_id_last_updated=0x7f08000c;
-        public static final int ptr_id_spinner=0x7f080009;
-        public static final int ptr_id_text=0x7f08000b;
-        public static final int ptr_id_textwrapper=0x7f08000a;
-        public static final int text=0x7f080006;
-        public static final int textCount=0x7f080005;
-        public static final int tvBody=0x7f080011;
-        public static final int tvCreatedAt=0x7f08000f;
-        public static final int tvName=0x7f080010;
-        public static final int tvUserName=0x7f08000e;
+        public static final int action_settings=0x7f08001c;
+        public static final int flContainer=0x7f08000b;
+        public static final int fragment_followers_list=0x7f080000;
+        public static final int fragment_friends_list=0x7f080001;
+        public static final int fragment_user_timeline=0x7f08000a;
+        public static final int ivProfileImage=0x7f080004;
+        public static final int llCount=0x7f080007;
+        public static final int login_layout=0x7f080002;
+        public static final int lvTweets=0x7f08000c;
+        public static final int new_tweet=0x7f08001d;
+        public static final int new_tweet_header=0x7f08000d;
+        public static final int new_tweet_image=0x7f08000e;
+        public static final int new_tweet_name=0x7f08000f;
+        public static final int new_tweet_screen_name=0x7f080010;
+        public static final int profile=0x7f08001e;
+        public static final int ptr_id_header=0x7f080013;
+        public static final int ptr_id_image=0x7f080014;
+        public static final int ptr_id_last_updated=0x7f080018;
+        public static final int ptr_id_spinner=0x7f080015;
+        public static final int ptr_id_text=0x7f080017;
+        public static final int ptr_id_textwrapper=0x7f080016;
+        public static final int rlHeader=0x7f080003;
+        public static final int text=0x7f080012;
+        public static final int textCount=0x7f080011;
+        public static final int tvBody=0x7f08001b;
+        public static final int tvCreatedAt=0x7f08001a;
+        public static final int tvFollowers=0x7f080008;
+        public static final int tvFollowing=0x7f080009;
+        public static final int tvName=0x7f080005;
+        public static final int tvTagline=0x7f080006;
+        public static final int tvUserName=0x7f080019;
     }
     public static final class layout {
-        public static final int activity_login=0x7f030000;
-        public static final int activity_timeline=0x7f030001;
-        public static final int new_tweet=0x7f030002;
-        public static final int ptr_header=0x7f030003;
-        public static final int tweet_item=0x7f030004;
+        public static final int activity_followers=0x7f030000;
+        public static final int activity_friends=0x7f030001;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_profile=0x7f030003;
+        public static final int activity_timeline=0x7f030004;
+        public static final int fragment_tweets_list=0x7f030005;
+        public static final int new_tweet=0x7f030006;
+        public static final int ptr_header=0x7f030007;
+        public static final int tweet_item=0x7f030008;
     }
     public static final class menu {
         public static final int login=0x7f070000;
@@ -67,13 +89,17 @@ public final class R {
         public static final int app_name=0x7f050004;
         public static final int cancel=0x7f05000c;
         public static final int foo_label=0x7f050009;
+        public static final int hello_world=0x7f05000e;
         public static final int login_label=0x7f050007;
         public static final int ptr_last_updated=0x7f050003;
         public static final int ptr_pull_to_refresh=0x7f050000;
         public static final int ptr_refreshing=0x7f050002;
         public static final int ptr_release_to_refresh=0x7f050001;
         public static final int submit=0x7f05000b;
+        public static final int title_activity_followers=0x7f05000f;
+        public static final int title_activity_friends=0x7f050010;
         public static final int title_activity_photos=0x7f050006;
+        public static final int title_activity_profile=0x7f05000d;
         public static final int title_activity_timeline=0x7f050008;
         public static final int tweet_body=0x7f05000a;
     }
@@ -107,10 +133,11 @@ public final class R {
         public static final int AppTheme=0x7f040008;
         /**  the theme applied to the application or activity 
          */
-        public static final int CustomActionBarTheme=0x7f04000a;
+        public static final int CustomActionBarTheme=0x7f04000b;
         /**  ActionBar styles 
          */
-        public static final int MyActionBar=0x7f04000b;
+        public static final int MyActionBar=0x7f04000c;
+        public static final int button_text=0x7f04000a;
         public static final int ptr_arrow=0x7f040002;
         public static final int ptr_header=0x7f040001;
         public static final int ptr_headerContainer=0x7f040000;

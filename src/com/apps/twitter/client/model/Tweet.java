@@ -14,11 +14,12 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 import com.activeandroid.util.Log;
+import com.apps.twitter.client.interfaces.ListViewItemModel;
 
 import android.text.format.DateUtils;
 
 @Table(name = "Tweets")
-public class Tweet extends Model {
+public class Tweet extends Model implements ListViewItemModel {
 	@Column(name="body")
 	private String body;
 	@Column(name="u_id", unique=true, onUniqueConflict = Column.ConflictAction.REPLACE)
@@ -43,7 +44,7 @@ public class Tweet extends Model {
 				tweet.uid = jsonObject.getLong("id");
 				User user = User.fromJSON(jsonObject.getJSONObject("user"));
 				tweet.user = user;
-				tweet.save();
+			//	tweet.save();
 				Log.d("debug", "Saving new tweet.");
 			}
 			return tweet;
@@ -93,7 +94,7 @@ public class Tweet extends Model {
 		return body;
 	}
 	
-	public long getUid() {
+	public Long getUid() {
 		return uid;
 	}
 	
@@ -125,6 +126,34 @@ public class Tweet extends Model {
 	@Override
 	public String toString(){
 		return getBody() + " - " + getUser().getScreenName();
+	}
+
+	@Override
+	public Long getUserId() {
+		return getUser().getUid();
+	}
+
+	@Override
+	public String getUserName() {
+		return getUser().getName();
+	}
+
+	@Override
+	public String getProfileImageUrl() {
+		// TODO Auto-generated method stub
+		return getUser().getProfileImageUrl();
+	}
+
+	@Override
+	public String getUserScreenName() {
+		// TODO Auto-generated method stub
+		return getUser().getScreenName();
+	}
+
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return getBody();
 	}
 	
 }
