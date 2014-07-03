@@ -1,4 +1,4 @@
-package com.apps.twitter.client.dialogs;
+package com.apps.twitter.client.fragments;
 
 import org.json.JSONObject;
 

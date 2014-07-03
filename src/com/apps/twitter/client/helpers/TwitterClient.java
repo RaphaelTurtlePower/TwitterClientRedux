@@ -34,99 +34,18 @@ public class TwitterClient extends OAuthBaseClient {
     }
     
     public void getTwitterTimeline(Long since_id, Long max_id, AsyncHttpResponseHandler handler){
-    	System.out.println("Get HomeTimeline called.");
     	String apiUrl = getApiUrl("statuses/home_timeline.json");
     	RequestParams params = new RequestParams();
     	if(since_id != null){
-    		System.out.println("Since_Id:" + since_id.toString());
     		params.put("since_id", since_id.toString());
     	}
     	if(max_id != null){
-    		System.out.println("Max_id:" + max_id.toString());
-        	params.put("max_id", max_id.toString() );
+    		params.put("max_id", max_id.toString() );
     	}
     	client.get(apiUrl,params, handler);
     	
     }
     
-    
-    public void getUserInfo(Long user_id,  AsyncHttpResponseHandler handler){
-    	if(user_id == null){
-    		return;
-    	}
-    	String apiUrl = getApiUrl("users/show.json");
-    	RequestParams params = new RequestParams();
-    	params.put("user_id", user_id.toString());
-    	client.get(apiUrl,params, handler);
-    }
-    
-    public void getUserTimeline(Long since_id, Long max_id, Long user_id, AsyncHttpResponseHandler handler){
-    	System.out.println("Get USERTimeline called.");
-    	String apiUrl = getApiUrl("statuses/user_timeline.json");
-    	RequestParams params = new RequestParams();
-    	if(since_id != null){
-    		System.out.println("Since_Id:" + since_id.toString());
-        	params.put("since_id", since_id.toString());
-    	}
-    	if(max_id != null){
-    		System.out.println("Max_id:" + max_id.toString());
-        	params.put("max_id", max_id.toString() );
-    	}
-    	if(user_id != null){
-    		params.put("user_id", user_id.toString());
-    	}
-    	client.get(apiUrl,params, handler);
-    	
-    }
-    
-    public void getMentionsTimeline(Long since_id, Long max_id, AsyncHttpResponseHandler handler){
-    	System.out.println("Get MENTIONSTimeline called.");
-    	String apiUrl = getApiUrl("statuses/mentions_timeline.json");
-    	RequestParams params = new RequestParams();
-    	if(since_id != null){
-    		System.out.println("Since_Id:" + since_id.toString());
-        	params.put("since_id", since_id.toString());
-    	}
-    	if(max_id != null){
-    		System.out.println("Max_id:" + max_id.toString());
-        	params.put("max_id", max_id.toString() );
-    	}
-    	client.get(apiUrl,params, handler);
-    	
-    }
-    
-    public void getFriendsList(Long user_id, Long cursor, AsyncHttpResponseHandler handler){
-    	System.out.println("Client:getFriendsListCalled");
-    	if(user_id == null){
-    		System.out.println("User id is null for friends list");
-        	return;
-    	}
-    	String apiUrl = getApiUrl("friends/list.json");
-    	RequestParams params = new RequestParams();
-    	params.put("user_id", user_id.toString());
-    	if(cursor != null){
-    		System.out.println("Cursor:" + cursor.toString());
-    		params.put("cursor", cursor.toString());
-    	}
-    	client.get(apiUrl,params, handler);
-    }
-    
-    public void getFollowersList(Long user_id, Long cursor, AsyncHttpResponseHandler handler){
-    	System.out.println("Get FOLLOWERSLIST called.");
-    	
-    	if(user_id == null){
-    		System.out.println("User id is null for followers list");
-    		return;
-    	}
-    	String apiUrl = getApiUrl("followers/list.json");
-    	RequestParams params = new RequestParams();
-    	params.put("user_id", user_id.toString());
-    	if(cursor != null){
-    		System.out.println("Cursor:" + cursor.toString());
-        	params.put("cursor", cursor.toString());
-    	}
-    	client.get(apiUrl,params, handler);
-    } 
     public void getVerifiedCredentials(AsyncHttpResponseHandler handler){
     	String apiUrl = getApiUrl("account/verify_credentials.json");
     	client.get(apiUrl,  handler);

@@ -5,14 +5,12 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.apps.twitter.client.R;
@@ -31,10 +29,6 @@ public class LoginActivity extends OAuthLoginActivity<TwitterClient> {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		Drawable bkg = getResources().getDrawable(R.drawable.street_lights);
-		bkg.setAlpha(200);
-		RelativeLayout r = (RelativeLayout) findViewById(R.id.login_layout);
-		r.setBackgroundDrawable(bkg);
 	}
 
 	// Inflate the menu; this adds items to the action bar if it is present.
